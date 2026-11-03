@@ -1,122 +1,101 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import { useState, useEffect } from "react";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import KeyPoints from "./components/KeyPoints";
+import { ImagePlaceholder, VideoPlaceholder } from "./components/Media";
+import { MODULES, LOREM_SHORT } from "./data/pages";
+import HomeAfterYears from "./pages/HomeAfterYears";
+import FurorNoli from "./pages/FurorNoli";
+import Protesta from "./pages/Protesta";
+import Depart from "./pages/Depart";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+function Summary({ setActivePage }) {
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
+    <div className="mx-auto max-w-7xl px-5 py-12 sm:px-8 md:py-16">
+      {/* Hero: text left, image right, equal columns */}
+      <section className="grid items-center gap-12 pb-14 md:grid-cols-2">
         <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
+          <p className="font-ui text-xl opacity-70">Summary of the source document</p>
+          <h1 className="mt-4 font-display text-5xl font-semibold leading-tight md:text-7xl">
+            Home again, then out to sea.
+          </h1>
+          <p className="mt-6 text-2xl opacity-80">{LOREM_SHORT}</p>
+          <button
+            onClick={() => setActivePage(MODULES[0].id)}
+            className="mt-8 bg-wax px-7 py-3 font-ui text-xl text-paper transition-colors duration-150 hover:bg-ink"
+          >
+            Start with Part 1
+          </button>
         </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
+        <ImagePlaceholder ratio="aspect-4/3" caption="Lead image placeholder." />
       </section>
 
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
+      {/* Executive summary: key points beside an image */}
+      <section className="border-t-4 border-ink py-14">
+        <h2 className="font-display text-4xl font-semibold md:text-5xl">Executive summary</h2>
+        <div className="mt-8 grid items-start gap-10 md:grid-cols-2">
+          <KeyPoints />
+          <ImagePlaceholder ratio="aspect-4/3" caption="Supporting image placeholder." />
         </div>
       </section>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+      {/* Video beside more key points */}
+      <section className="border-t-4 border-ink py-14">
+        <h2 className="font-display text-4xl font-semibold md:text-5xl">Background</h2>
+        <div className="mt-8 grid items-start gap-10 md:grid-cols-2">
+          <KeyPoints />
+          <VideoPlaceholder caption="Documentary or lecture embed placeholder." />
+        </div>
+      </section>
+
+      {/* Quick links */}
+      <section className="border-t-4 border-ink pt-14">
+        <h2 className="font-display text-4xl font-semibold md:text-5xl">The four parts</h2>
+        <ol className="mt-8 border-t-2 border-ink">
+          {MODULES.map((m) => (
+            <li key={m.id} className="border-b border-ink/30">
+              <button
+                onClick={() => setActivePage(m.id)}
+                className="grid w-full items-center gap-x-6 gap-y-1 py-6 text-left transition-colors duration-150 hover:bg-ink hover:text-paper md:grid-cols-[4rem_1fr_auto] md:px-4"
+              >
+                <span className="font-display text-5xl font-black text-wax">{m.part}</span>
+                <span>
+                  <span className="block font-display text-3xl font-semibold">{m.title}</span>
+                  <span className="mt-1 block text-xl opacity-75">{LOREM_SHORT}</span>
+                </span>
+                <span className="font-ui text-xl opacity-70">{m.period}</span>
+              </button>
+            </li>
+          ))}
+        </ol>
+      </section>
+    </div>
+  );
 }
 
-export default App
+const VIEWS = {
+  "home-after-years": HomeAfterYears,
+  "furor-noli": FurorNoli,
+  protesta: Protesta,
+  depart: Depart,
+};
+
+export default function App() {
+  const [activePage, setActivePage] = useState("summary");
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [activePage]);
+
+  const View = VIEWS[activePage];
+
+  return (
+    <div className="flex min-h-screen flex-col overflow-x-clip">
+      <Navbar activePage={activePage} setActivePage={setActivePage} />
+      <main key={activePage} className="view-enter flex-1">
+        {View ? <View setActivePage={setActivePage} /> : <Summary setActivePage={setActivePage} />}
+      </main>
+      <Footer activePage={activePage} setActivePage={setActivePage} />
+    </div>
+  );
+}
