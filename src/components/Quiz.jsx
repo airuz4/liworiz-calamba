@@ -57,7 +57,7 @@ export default function Quiz({ questions = PLACEHOLDER_QUESTIONS }) {
   if (finished) {
     return (
       <div className="border-2 border-ink bg-ink p-8 text-paper" role="status">
-        <p className="font-display text-6xl font-black text-wax">
+        <p className="font-display text-6xl font-black text-wax-light">
           {score}/{questions.length}
         </p>
         <p className="mt-3 font-display text-3xl">Quiz complete</p>

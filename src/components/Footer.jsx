@@ -19,7 +19,7 @@ export default function Footer({ activePage, setActivePage }) {
               <li key={m.id}>
                 <button
                   onClick={() => setActivePage(m.id)}
-                  className="flex w-full justify-between py-3 text-left hover:text-wax"
+                  className="flex w-full justify-between py-3 text-left hover:text-wax-light"
                 >
                   <span>{m.title}</span>
                   <span className="text-paper/50">{m.part}</span>

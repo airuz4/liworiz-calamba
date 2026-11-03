@@ -88,9 +88,9 @@ function Summary({ setActivePage }) {
             <li key={m.id} className="border-b border-ink/30">
               <button
                 onClick={() => setActivePage(m.id)}
-                className="grid w-full items-center gap-x-6 gap-y-1 py-6 text-left transition-colors duration-150 hover:bg-ink hover:text-paper md:grid-cols-[4rem_1fr_auto] md:px-4"
+                className="group grid w-full items-center gap-x-6 gap-y-1 py-6 text-left transition-colors duration-150 hover:bg-ink hover:text-paper md:grid-cols-[4rem_1fr_auto] md:px-4"
               >
-                <span className="font-display text-5xl font-black text-wax">{m.part}</span>
+                <span className="font-display text-5xl font-black text-wax group-hover:text-wax-light">{m.part}</span>
                 <span>
                   <span className="block font-display text-3xl font-semibold">{m.title}</span>
                   <span className="mt-1 block text-xl opacity-75">{m.blurb}</span>

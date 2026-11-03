@@ -6,12 +6,13 @@
   --font-body: "Atkinson Hyperlegible", "Segoe UI", Verdana, sans-serif;
   --font-ui: "Atkinson Hyperlegible", "Segoe UI", Verdana, sans-serif;
 
-  --color-ink: #10231e;        /* dominant: deep bottle green */
-  --color-ink-soft: #1d3a32;
-  --color-paper: #e6ebe4;      /* cool archival grey-green paper */
-  --color-paper-deep: #d3dbd0;
-  --color-wax: #c23b22;        /* sealing-wax red: the sharp accent */
-  --color-brass: #b8923a;      /* used sparingly, captions only */
+  --color-ink: #3a2514;        /* coffee brown: text, nav, footer */
+  --color-ink-soft: #5a3d28;
+  --color-paper: #f8f0d8;      /* light, warm yellowed paper */
+  --color-paper-deep: #eddfb8; /* parchment for panels and placeholders */
+  --color-wax: #a0431f;        /* rust-red ink accent (readable on paper) */
+  --color-wax-light: #e3b57a;  /* same accent family, for use on dark coffee */
+  --color-brass: #a57c3c;
 }
 
 html { scroll-behavior: smooth; }
