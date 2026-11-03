@@ -4,19 +4,70 @@ import Quiz from "./Quiz";
 import { MODULES, LOREM_SHORT, placeholderPoints } from "../data/pages";
 
 /**
- * Shared page for the four modules. Every section is a two-column row:
- * key points on the left, media on the right.
+ * Shared page for the four modules. The color theme is the same everywhere;
+ * each module picks a `layout` in data/pages.js that sets how text and media sit:
+ *   split     text left, media right
+ *   zigzag    text and media swap sides on every section
+ *   portrait  tall media on the left (stays in view while you read), text right
+ *   sandwich  key points split to either side of centered media
  *
- * Optional props for real content later:
- *   intro:    one or two sentences under the page title
- *   sections: [{ heading, points: [{point, sub}], media: "image" | "video", src, caption }]
- *   quiz:     [{ prompt, options, answer, explanation }]
+ * Optional props for real content:
+ *   intro, sections: [{ heading, points: [{point, sub}], media: "image" | "video", src, caption }],
+ *   quiz: [{ prompt, options, answer, explanation }]
  */
 const DEFAULT_SECTIONS = [
   { heading: "Section heading 1", media: "image" },
   { heading: "Section heading 2", media: "image" },
   { heading: "Section heading 3", media: "video" },
 ].map((s) => ({ ...s, points: placeholderPoints(3) }));
+
+function Media({ s, ratio, className = "" }) {
+  return s.media === "video" ? (
+    <VideoPlaceholder src={s.src} caption={s.caption} className={className} />
+  ) : (
+    <ImagePlaceholder ratio={ratio} src={s.src} caption={s.caption} className={className} />
+  );
+}
+
+function SectionBody({ layout, s, index }) {
+  if (layout === "zigzag") {
+    const flip = index % 2 === 1;
+    return (
+      <div className="grid items-start gap-10 md:grid-cols-2">
+        <KeyPoints points={s.points} />
+        <Media s={s} ratio="aspect-4/3" className={flip ? "md:order-first" : ""} />
+      </div>
+    );
+  }
+
+  if (layout === "portrait") {
+    return (
+      <div className="grid items-start gap-10 md:grid-cols-2">
+        <KeyPoints points={s.points} />
+        <Media s={s} ratio="aspect-3/4" className="md:sticky md:top-28 md:order-first" />
+      </div>
+    );
+  }
+
+  if (layout === "sandwich") {
+    const mid = Math.ceil(s.points.length / 2);
+    return (
+      <div className="grid items-start gap-10 lg:grid-cols-3">
+        <KeyPoints points={s.points.slice(0, mid)} size="sm" />
+        <Media s={s} ratio="aspect-3/4" />
+        <KeyPoints points={s.points.slice(mid)} size="sm" />
+      </div>
+    );
+  }
+
+  // split (default)
+  return (
+    <div className="grid items-start gap-10 md:grid-cols-2">
+      <KeyPoints points={s.points} />
+      <Media s={s} ratio="aspect-4/3" />
+    </div>
+  );
+}
 
 export default function ModulePage({ id, intro = LOREM_SHORT, sections = DEFAULT_SECTIONS, quiz, setActivePage }) {
   const idx = MODULES.findIndex((m) => m.id === id);
@@ -37,13 +88,8 @@ export default function ModulePage({ id, intro = LOREM_SHORT, sections = DEFAULT
       {sections.map((s, i) => (
         <section key={i} className="border-t-4 border-ink py-14">
           <h2 className="font-display text-4xl font-semibold md:text-5xl">{s.heading}</h2>
-          <div className="mt-8 grid items-start gap-10 md:grid-cols-2">
-            <KeyPoints points={s.points} />
-            {s.media === "video" ? (
-              <VideoPlaceholder src={s.src} caption={s.caption} />
-            ) : (
-              <ImagePlaceholder ratio="aspect-4/3" src={s.src} caption={s.caption} />
-            )}
+          <div className="mt-8">
+            <SectionBody layout={mod.layout} s={s} index={i} />
           </div>
         </section>
       ))}

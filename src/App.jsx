@@ -75,8 +75,8 @@ function Summary({ setActivePage }) {
       <section className="border-t-4 border-ink py-14">
         <h2 className="font-display text-4xl font-semibold md:text-5xl">At a glance</h2>
         <div className="mt-8 grid items-start gap-10 md:grid-cols-2">
+          <VideoPlaceholder caption="Documentary or lecture embed placeholder." className="md:order-first" />
           <KeyPoints points={GLANCE_POINTS} />
-          <VideoPlaceholder caption="Documentary or lecture embed placeholder." />
         </div>
       </section>
 
