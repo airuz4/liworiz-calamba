@@ -8,16 +8,16 @@ export const SUMMARY = { id: "summary", label: "Overview" };
 
 // The four modules form a real sequence, so "part" numbering is meaningful.
 export const MODULES = [
-  { id: "home-after-years", part: 1, label: "Home", title: "Home After Five Years", period: "1887–1888" },
-  { id: "furor-noli", part: 2, label: "The Noli furor", title: "The Furor Over Noli Me Tangere", period: "Placeholder" },
-  { id: "protesta", part: 3, label: "Protesta", title: "Protesta De Calamba", period: "Placeholder" },
-  { id: "depart", part: 4, label: "Departure", title: "Departure for Europe", period: "Placeholder" },
+  { id: "home-after-years", part: 1, label: "Home", title: "Home After Five Years", period: "1887–1888", blurb: "Rizal returns to Calamba and opens a clinic and a gymnasium." },
+  { id: "furor-noli", part: 2, label: "The Noli furor", title: "The Furor Over Noli Me Tangere", period: "1887–1890", blurb: "The friars, the government and the university respond to the Noli." },
+  { id: "protesta", part: 3, label: "Protesta", title: "Protesta De Calamba", period: "Coming soon", blurb: "Coming soon." },
+  { id: "depart", part: 4, label: "Departure", title: "Departure for Europe", period: "1888", blurb: "Terrero advises Rizal to leave, and he sails for Europe." },
 ];
 
 export const PAGES = [SUMMARY, ...MODULES];
 
 export const placeholderPoints = (n = 3) =>
-     Array.from({ length: n }, (_, i) => ({
-       point: `Key point placeholder ${i + 1}`,
-       sub: LOREM_SHORT,
-     }));
+  Array.from({ length: n }, (_, i) => ({
+    point: `Key point placeholder ${i + 1}`,
+    sub: LOREM_SHORT,
+  }));

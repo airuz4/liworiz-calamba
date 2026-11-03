@@ -8,7 +8,7 @@ export default function Footer({ activePage, setActivePage }) {
         <div>
           <p className="font-display text-3xl leading-tight">You are reading: {current?.title ?? current?.label}</p>
           <p className="mt-4 max-w-md text-lg text-paper/70">
-            Placeholder source note. Replace with the citation for the source document this summary is drawn from.
+            Source: Chapter 8, Return to Calamba (1887–1888), from the LIWORIZ presentation.
           </p>
         </div>
 
@@ -30,7 +30,7 @@ export default function Footer({ activePage, setActivePage }) {
         </nav>
       </div>
       <div className="border-t border-paper/20 px-5 py-4 text-center font-ui text-lg text-paper/50">
-        Placeholder content. Not a historical record.
+        Summary prepared from the source presentation.
       </div>
     </footer>
   );

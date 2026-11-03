@@ -1,13 +1,14 @@
 import { ImagePlaceholder, VideoPlaceholder } from "./Media";
-import KeyPoints, { placeholderPoints } from "./KeyPoints";
+import KeyPoints from "./KeyPoints";
 import Quiz from "./Quiz";
-import { MODULES, LOREM_SHORT } from "../data/pages";
+import { MODULES, LOREM_SHORT, placeholderPoints } from "../data/pages";
 
 /**
  * Shared page for the four modules. Every section is a two-column row:
  * key points on the left, media on the right.
  *
  * Optional props for real content later:
+ *   intro:    one or two sentences under the page title
  *   sections: [{ heading, points: [{point, sub}], media: "image" | "video", src, caption }]
  *   quiz:     [{ prompt, options, answer, explanation }]
  */
@@ -17,7 +18,7 @@ const DEFAULT_SECTIONS = [
   { heading: "Section heading 3", media: "video" },
 ].map((s) => ({ ...s, points: placeholderPoints(3) }));
 
-export default function ModulePage({ id, sections = DEFAULT_SECTIONS, quiz, setActivePage }) {
+export default function ModulePage({ id, intro = LOREM_SHORT, sections = DEFAULT_SECTIONS, quiz, setActivePage }) {
   const idx = MODULES.findIndex((m) => m.id === id);
   const mod = MODULES[idx];
   const prev = MODULES[idx - 1];
@@ -30,7 +31,7 @@ export default function ModulePage({ id, sections = DEFAULT_SECTIONS, quiz, setA
           Part {mod.part} of {MODULES.length}
         </p>
         <h1 className="mt-3 font-display text-5xl font-semibold leading-tight md:text-7xl">{mod.title}</h1>
-        <p className="mt-6 max-w-3xl text-2xl opacity-80">{LOREM_SHORT}</p>
+        <p className="mt-6 max-w-3xl text-2xl opacity-80">{intro}</p>
       </header>
 
       {sections.map((s, i) => (
