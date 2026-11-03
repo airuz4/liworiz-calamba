@@ -6,13 +6,13 @@
   --font-body: "Atkinson Hyperlegible", "Segoe UI", Verdana, sans-serif;
   --font-ui: "Atkinson Hyperlegible", "Segoe UI", Verdana, sans-serif;
 
-  --color-ink: #3a2514;        /* coffee brown: text, nav, footer */
-  --color-ink-soft: #5a3d28;
-  --color-paper: #f8f0d8;      /* light, warm yellowed paper */
-  --color-paper-deep: #eddfb8; /* parchment for panels and placeholders */
-  --color-wax: #a0431f;        /* rust-red ink accent (readable on paper) */
-  --color-wax-light: #e3b57a;  /* same accent family, for use on dark coffee */
-  --color-brass: #a57c3c;
+  --color-ink: #1a2238;        /* iron-gall navy: text, nav, footer */
+  --color-ink-soft: #2b3654;
+  --color-paper: #f7f3e8;      /* soft ivory */
+  --color-paper-deep: #ebe4cf; /* parchment for panels and placeholders */
+  --color-wax: #7d5f17;        /* antique gold-bronze (readable on ivory) */
+  --color-wax-light: #dcb85c;  /* bright gold, for use on navy */
+  --color-brass: #b08d3a;
 }
 
 html { scroll-behavior: smooth; }
