@@ -1,39 +1,51 @@
 # Liworiz Calamba
 
-A modular React + Tailwind CSS web application built as an experiment in **AI-driven frontend prototyping**—focusing on structured component architecture, strict design constraints, and rapid development workflows.
+An informational web application built using React and Tailwind CSS. The primary objective of this project was to learn modern frontend tooling, component architecture, and AI-assisted engineering workflows.
 
-## ⚡ Tech Stack & Toolchain
+## Purpose
 
-* **Frontend:** React 18 + Vite
-* **Styling:** Tailwind CSS v4
-* **AI Architecture & Prompt Engineering:** Gemini
-* **AI Code Generation:** Claude
-* **Deployment:** Vercel
+This project was built to practice:
+- Setting up a modern build toolchain using React 18, Vite, and Tailwind CSS v4.
+- Structuring a web application with component-driven design and dynamic view management.
+- Multi-agent AI orchestration: using Gemini to define system architecture, file structures, and design constraints, and Claude to execute component logic.
+- Setting up continuous deployment using GitHub and Vercel.
 
-## 📐 Architecture
+## Tech Stack
+
+- **Framework:** React 18
+- **Build Tool:** Vite
+- **Styling:** Tailwind CSS v4
+- **Deployment:** Vercel
+- **Architecture & Prompting:** Gemini
+- **Code Generation:** Claude
+
+## Project Structure
 
 ```text
 src/
-├── components/     # Reusable layout UI (Navbar, Footer)
-├── pages/          # Content modules (HomeAfterYears, FurorNoli, Protesta, Depart)
-├── App.jsx         # Executive summary hub & view orchestrator
-└── main.jsx        # App entry point
+├── components/     # Reusable UI components (Navbar, Footer)
+├── pages/          # Content views (HomeAfterYears, FurorNoli, Protesta, Depart)
+├── App.jsx         # Main layout and view router
+└── main.jsx        # Application entry point
 ```
 
-## 🧪 AI Engineering Approach
+## AI Engineering Workflow
 
-* **Architecture First:** Used Gemini to design the system directory, component tree, and construct anti-slop prompt constraints.
-* **Targeted Code Generation:** Provided Claude with strict layout rules and component interfaces to generate clean `.jsx` modules on the first pass.
-* **Component Isolation:** Separated pages into discrete modules inside `src/pages/` for rapid iteration without global scope creep.
+1. **System Design (Gemini):** Used to plan the project structure, define component relationships, and draft design rules (avoiding standard AI design patterns).
+2. **Code Execution (Claude):** Used to generate clean, modular React components adhering to the predefined structure and design constraints.
+3. **Deployment Pipeline:** Managed version control via Git/GitHub and configured continuous deployment on Vercel.
 
-## 🚀 Local Setup
+## Local Setup
 
 ```bash
-# Clone & install
 git clone https://github.com/airuz4/liworiz-calamba.git
 cd liworiz-calamba
 npm install
-
-# Start dev server
 npm run dev
 ```
+
+## Future Improvements
+
+- Replace state-based view switching with `react-router-dom` for browser URL navigation.
+- Move static document data to a headless CMS or backend API.
+- Add search functionality across document sections.
