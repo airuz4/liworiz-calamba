@@ -4,7 +4,7 @@ const intro =
   "A protest made by the tenants of Calamba, Laguna, in 1888 against the Dominican friars who owned and managed the Hacienda de Calamba.";
 
 // MEDIA: replace each `src` below with your real file or link.
-//   images: put the file in public/images and use "/images/yourfile.jpg"
+//   images: put the file in public/images and use "/images/yourfile.webp"
 //   videos: paste the YouTube link (watch, youtu.be or shorts all work)
 // A section with no `caption` and no `src` has no media box at all.
 // To add media later, add `media`, `src` and `caption` to that section.
@@ -34,7 +34,7 @@ const sections = [
   {
     heading: "José Rizal's Role in the Protest",
     media: "image",
-    src: "/images/rizal.jpg",
+    src: "/images/rizal.webp",
     alt: "Jose Rizal's Portrait",
     caption: "Jose Rizal's Portrait",
     credit: "joserizal.ph",
