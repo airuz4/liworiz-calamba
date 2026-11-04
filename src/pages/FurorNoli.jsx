@@ -6,7 +6,7 @@ const intro =
 // Each key point with a `detail` opens a "paper" notes dialog when clicked.
 // Points with a `detail` open a "paper" notes dialog when clicked.
 // MEDIA: replace each `src` below with your real file or link.
-//   images: put the file in public/images and use "/images/yourfile.jpg"
+//   images: put the file in public/images and use "/images/yourfile.webp"
 //   videos: paste the YouTube link (watch, youtu.be or shorts all work)
 // A section with no `caption` and no `src` has no media box at all.
 // To add media later, add `media`, `src` and `caption` to that section.
@@ -43,7 +43,7 @@ const sections = [
   {
     heading: "Government Inquiry and Security",
     media: "image",
-    src: "/images/emilio-terrero.avif",
+    src: "/images/emilio-terrero.webp",
     alt: "Portrait of Governor-General Emilio Terrero y Perinat",
     caption: "Governor-General Emilio Terrero, who summoned Rizal to Malacañang Palace to inspect Noli Me Tángere and subsequently assigned Lt. Jose Taviel de Andrade as his personal bodyguard.",
     credit: "The Kahimyang Project",
@@ -89,7 +89,7 @@ const sections = [
   {
     heading: "Official Censorship and Escalation",
     media: "image",
-    src: "/images/noli.jpg",
+    src: "/images/noli.webp",
     alt: "Cover page of the first edition of Noli Me Tángere, Berlin, 1887",
     caption: "First edition of Noli Me Tángere, which was condemned by the University of Santo Tomas faculty committee and recommended for total ban by the Permanent Commission on Censorship.",
     credit: "www.tatlerasia.com | Picture taken at Philippine National Library",
@@ -164,7 +164,7 @@ const sections = [
   {
     heading: "Opposition to Noli Me Tángerë",
     media: "image",
-    src: "/images/caingat.jpg",
+    src: "/images/caingat.webp",
     alt: "Cover of the pamphlet Caiingat Cayo by Fr. Jose Rodriguez",
     caption: "Anti-Noli pamphlet 'Caiingat Cayo' authored by Fr. Jose Rodriguez, warning Catholics against reading Rizal's 'heretical and seditious' novel.",
     credit: "Project Gutenberg.",
@@ -206,7 +206,7 @@ const sections = [
   {
     heading: "Defenders of Noli Me Tángerë",
     media: "image",
-    src: "/images/defenders.jpeg",
+    src: "/images/defenders.webp",
     alt: "Composite portrait of Marcelo H. del Pilar, Fr. Francisco de Paula Sanchez and Fr. Vicente Garcia",
     caption: "Key defenders of Noli Me Tángere: Marcelo H. del Pilar (author of 'Caiigat Cayo'), Fr. Francisco de Paula Sanchez, and Fr. Vicente Garcia.",
     credit: "Philippine Historical Association / Propaganda Movement Archives.",

@@ -4,7 +4,7 @@ const intro =
   "Rizal returned to the Philippines in 1887 to operate on his mother's eyes, serve his countrymen, and see what his novel had done.";
 
 // MEDIA: replace each `src` below with your real file or link.
-//   images: put the file in public/images and use "/images/yourfile.jpg"
+//   images: put the file in public/images and use "/images/yourfile.webp"
 //   videos: paste the YouTube link (watch, youtu.be or shorts all work)
 // A section with no `caption` and no `src` has no media box at all.
 // To add media later, add `media`, `src` and `caption` to that section.
@@ -12,7 +12,7 @@ const sections = [
   {
     heading: "The Journey Home",
     media: "image",
-    src: "/images/djemnah.jpg",
+    src: "/images/djemnah.webp",
     alt: "The French steamer SS Djemnah",
     caption: "SS Djemnah, the French steamer ship used by Dr. Jose Rizal during his maritime travels.",
     credit: "Knights of Rizal",
@@ -72,7 +72,7 @@ const sections = [
   {
     heading: "Rizal's First Clinic",
     media: "image",
-    src: "/images/scott-oil.jpg",
+    src: "/images/scott-oil.webp",
     alt: "Scott's Emulsion Cod Liver Oil bottle and box",
     caption: "Scott's Emulsion Cod Liver Oil, a vintage medical advertisement illustrating 19th-century remedies used during Rizal's practice.",
     credit: "Smithsonian Museum",

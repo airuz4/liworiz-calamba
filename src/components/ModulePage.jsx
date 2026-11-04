@@ -40,6 +40,7 @@ function Media({ s, ratio, className = "" }) {
       alt={s.alt ?? s.caption}
       caption={s.caption}
       credit={s.credit}
+      loading="lazy" 
       className={className}
     />
   );

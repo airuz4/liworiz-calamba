@@ -12,7 +12,7 @@ const sections = [
   {
     heading: "Why he had to leave",
     media: "image",
-    src: "/images/manila-harbor.jpeg",
+    src: "/images/manila-harbor.webp",
     alt: "Manila Bay harbor in the late 1880s",
     caption: "Manila Harbor in the late 1880s, where Rizal prepared for his sudden departure to escape friar persecution and protect his family.",
     credit: "University of Michigan Special Collections / Public Domain.",
@@ -38,7 +38,7 @@ const sections = [
   {
     heading: "Himno al Trabajo",
     media: "image",
-    src: "/images/himno.jpeg",
+    src: "/images/himno.webp",
     alt: "Himno al Trabajo manuscript page and Batangas agricultural workers",
     caption: "Original manuscript of 'Himno al Trabajo' composed by Rizal in 1887 to honor the industrious citizens and agricultural workers of Lipa, Batangas.",
     credit: "Facebook Reference / Filipinas Heritage Library.",

@@ -12,7 +12,7 @@ const sections = [
   {
     heading: "The Calamba Agrarian Dispute",
     media: "image",
-    src: "/images/Calamba-Church.JPG",
+    src: "/images/Calamba-Church.webp",
     alt: "Calamba parish church and the hacienda house",
     caption: "Calamba Parish Church and Hacienda House, the local parish church and estate headquarters central to the land dispute.",
     credit: "Hacienda de Calamba",
@@ -34,7 +34,7 @@ const sections = [
   {
     heading: "José Rizal's Role in the Protest",
     media: "image",
-    src: "/images/rizal.webp",
+    src: "/images/rizal1.webp",
     alt: "Jose Rizal's Portrait",
     caption: "Jose Rizal's Portrait",
     credit: "joserizal.ph",
