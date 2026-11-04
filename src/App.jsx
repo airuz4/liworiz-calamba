@@ -61,7 +61,7 @@ function Summary({ setActivePage }) {
         </div>
         <ImagePlaceholder
           ratio="aspect-4/3"
-          src="images/rizal-monument.jpg"
+          src="images/rizal-monument.webp"
           alt="Portrait of Dr. José Rizal in 1887"
           caption="Dr. Jose Rizal upon his return to the Philippines in 1887, marking six tumultuous months in Calamba before being forced back into exile."
           credit="Intrepid Wanderer (intrepidwanderer.com)"
@@ -75,7 +75,7 @@ function Summary({ setActivePage }) {
           <KeyPoints points={EXEC_POINTS} />
           <ImagePlaceholder
             ratio="aspect-4/3"
-            src="/images/calamba-laguna.jpg"
+            src="/images/calamba-laguna.webp"
             alt="An old photo of Calamba, Laguna"
             caption="An old photo of Calamba, Laguna"
             credit="https://www.flickr.com/photos/190918182@N07/"
