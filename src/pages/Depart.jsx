@@ -3,10 +3,19 @@ import ModulePage from "../components/ModulePage";
 const intro =
   "With the friars pressing for action and his family anxious, Rizal left for Europe on February 3, 1888.";
 
+// MEDIA: replace each `src` below with your real file or link.
+//   images: put the file in public/images and use "/images/yourfile.jpg"
+//   videos: paste the YouTube link (watch, youtu.be or shorts all work)
+// A section with no `caption` and no `src` has no media box at all.
+// To add media later, add `media`, `src` and `caption` to that section.
 const sections = [
   {
     heading: "Why he had to leave",
     media: "image",
+    src: "/images/manila-harbor.jpeg",
+    alt: "Manila Bay harbor in the late 1880s",
+    caption: "Manila Harbor in the late 1880s, where Rizal prepared for his sudden departure to escape friar persecution and protect his family.",
+    credit: "University of Michigan Special Collections / Public Domain.",
     points: [
       {
         point: "The friars pressed for his arrest",
@@ -29,6 +38,10 @@ const sections = [
   {
     heading: "Himno al Trabajo",
     media: "image",
+    src: "/images/himno.jpeg",
+    alt: "Himno al Trabajo manuscript page and Batangas agricultural workers",
+    caption: "Original manuscript of 'Himno al Trabajo' composed by Rizal in 1887 to honor the industrious citizens and agricultural workers of Lipa, Batangas.",
+    credit: "Facebook Reference / Filipinas Heritage Library.",
     points: [
       {
         point: "A poem for Lipa",
@@ -46,7 +59,6 @@ const sections = [
   },
   {
     heading: "The four parts of the poem",
-    media: "video",
     points: [
       {
         point: "Men",
@@ -68,7 +80,6 @@ const sections = [
   },
   {
     heading: "Leaving Calamba",
-    media: "image",
     points: [
       {
         point: "He sailed on February 3, 1888",
@@ -86,7 +97,7 @@ const sections = [
   },
   {
     heading: "Aftermath",
-    media: "video",
+  
     points: [
       {
         point: "Six tumultuous months",
@@ -110,12 +121,6 @@ const sections = [
 
 const quiz = [
   {
-    prompt: "Which vessel did Rizal board on February 3, 1888?",
-    options: ["The Djemnah", "The Haiphong", "The Don Juan", "The Becerra"],
-    answer: 2,
-    explanation: "The Don Juan was the first leg of his trip, and it was where he met Seaman Riego.",
-  },
-  {
     prompt: "Why did Governor-General Terrero refuse to arrest or deport Rizal?",
     options: [
       "He feared the Jesuits",
@@ -126,23 +131,7 @@ const quiz = [
     answer: 1,
     explanation: "Terrero still advised Rizal to leave the Philippines for his own good.",
   },
-  {
-    prompt: "What did Rizal contribute to Lipa's celebration instead of attending?",
-    options: ["A speech", "A painting", "A donation", "A poem, Himno al Trabajo"],
-    answer: 3,
-    explanation: "He dedicated the poem to the hardworking people of Lipa.",
-  },
-  {
-    prompt: "Which are the four parts of the poem?",
-    options: [
-      "Men, Wives, Maidens, Children",
-      "Farmers, Merchants, Priests, Soldiers",
-      "Past, Present, Future, Hope",
-      "Lipa, Calamba, Manila, Europe",
-    ],
-    answer: 0,
-    explanation: "Each part speaks to one group and what work means for them.",
-  },
+
   {
     prompt: "How did Rizal respond to the friars' offer of money if he stopped attacking them?",
     options: [

@@ -13,6 +13,7 @@
   --color-wax: #7d5f17;        /* antique gold-bronze (readable on ivory) */
   --color-wax-light: #dcb85c;  /* bright gold, for use on navy */
   --color-brass: #b08d3a;
+  --color-sheet: #fffbf0;      /* the "paper" in the notes dialog */
 }
 
 html { scroll-behavior: smooth; }

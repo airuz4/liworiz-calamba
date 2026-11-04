@@ -61,7 +61,6 @@ export default function Quiz({ questions = PLACEHOLDER_QUESTIONS }) {
           {score}/{questions.length}
         </p>
         <p className="mt-3 font-display text-3xl">Quiz complete</p>
-        <p className="mt-2 max-w-md text-base opacity-75">{LOREM_SHORT}</p>
         <button
           onClick={restart}
           className="mt-6 bg-wax px-5 py-2 font-ui text-lg text-paper transition-colors duration-150 hover:bg-paper hover:text-ink"

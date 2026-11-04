@@ -3,80 +3,108 @@ import ModulePage from "../components/ModulePage";
 const intro =
   "Rizal returned to the Philippines in 1887 to operate on his mother's eyes, serve his countrymen, and see what his novel had done.";
 
+// MEDIA: replace each `src` below with your real file or link.
+//   images: put the file in public/images and use "/images/yourfile.jpg"
+//   videos: paste the YouTube link (watch, youtu.be or shorts all work)
+// A section with no `caption` and no `src` has no media box at all.
+// To add media later, add `media`, `src` and `caption` to that section.
 const sections = [
   {
-    heading: "The journey home",
+    heading: "The Journey Home",
     media: "image",
+    src: "/images/djemnah.jpg",
+    alt: "The French steamer SS Djemnah",
+    caption: "SS Djemnah, the French steamer ship used by Dr. Jose Rizal during his maritime travels.",
+    credit: "Knights of Rizal",
     points: [
       {
-        point: "He left for Marseilles on July 3, 1887",
-        sub: "It was the first leg of his trip back. He boarded the same vessel as five years earlier, the Djemnah.",
+        point: "The First Leg",
+        sub: "On July 3, 1887, Rizal left for Marseilles, France, to go back home to the Philippines.",
       },
       {
-        point: "Four reasons to return",
-        sub: "To operate on his mother's failing eyes, serve his countrymen, learn the effects of the Noli, and find out why Leonor Rivera stopped writing.",
+        point: "Why did Rizal want to go home?",
+        sub: [
+          "To operate on his mother's failing eyes.",
+          "To serve his countrymen.",
+          "To know the effects of his novel, Noli Me Tangere.",
+          "To learn why Leonor Rivera stopped writing to him.",
+        ],
       },
       {
         point: "A polyglot aboard",
         sub: "Among the many foreigners on the vessel, Rizal acted as an interpreter.",
       },
       {
-        point: "Manila on August 6, Calamba two days later",
-        sub: "At Saigon he switched to the steamer Haiphong, bound for Manila on July 30.",
+        point: "The Final Leg",
+        sub: [
+          "The Djemnah docked at Saigon, Vietnam. From there, he switched to another steamer vessel, the Haiphong.",
+          "He arrived at Manila on the night of August 6. Two days later, he arrived at his home in Calamba, Laguna.",
+        ],
       },
     ],
   },
   {
-    heading: "A happy but uneasy homecoming",
+    heading: "A Bittersweet Homecoming",
     media: "image",
+    src: "/images/rizals-birthplace.webp",
+    alt: "Sketch of the house where Dr. Rizal was born.",
+    caption: "Rizal's House in Calamba, the ancestral home where Rizal established his medical clinic and sports gymnasium.",
+    credit: "Kahimyang Project",
     points: [
       {
-        point: "Warned before he arrived",
-        sub: "His family told him there might be people who wanted to cause him harm.",
+        point: "A warning from family",
+        sub: "Warned by his brother, Paciano, and his brother-in-law, Silvestre Ubaldo.",
       },
       {
-        point: "Joy at home, fear for his safety",
-        sub: "The friars were upset over his novel's slander against the Church and its subversive ideas.",
+        point: "Fears for Rizal's safety",
+        sub: "The friars were upset because of his novel's slander against the Church and his subversive ideas.",
       },
       {
-        point: "Loss and a missed reunion",
-        sub: "His sister Olimpia died from complications of childbirth. His family begged him not to see Leonor Rivera, and her mother did not approve.",
+        point: "A loss too great",
+        sub: "Rizal's sister, Olimpia, died due to complications during childbirth.",
+      },
+      {
+        point: "Rizal's heartbreak",
+        sub: "Rizal was unable to see Leonor Rivera: his family begged him not to see her and Leonor's mother did not approve.",
       },
     ],
   },
   {
-    heading: "The clinic in Calamba",
-    media: "video",
+    heading: "Rizal's First Clinic",
+    media: "image",
+    src: "/images/scott-oil.jpg",
+    alt: "Scott's Emulsion Cod Liver Oil bottle and box",
+    caption: "Scott's Emulsion Cod Liver Oil, a vintage medical advertisement illustrating 19th-century remedies used during Rizal's practice.",
+    credit: "Smithsonian Museum",
     points: [
       {
-        point: "His first patient was his mother",
-        sub: "He removed a double cataract from Doña Teodora's eyes, which the townspeople saw as a miracle.",
+        point: "Rizal's first patient",
+        sub: "His very first patient was his mother, Doña Teodora. He removed a double cataract from his mother's eyes; this was seen as a miraculous feat by the townspeople.",
       },
       {
-        point: "Known as \"Doctor Uliman\"",
-        sub: "The name means the German doctor. His clinic drew people from other provinces and Manila.",
+        point: "Doctor Uliman",
+        sub: "His clinic attracted more attention from different provinces, even in Manila. He was called Doctor Uliman or the German Doctor.",
       },
       {
-        point: "Fair fees, free care for the poor",
-        sub: "Within a few months he earned $900.",
+        point: "Rizal provided accessible healthcare",
+        sub: "Within months of opening his clinic, Rizal earned $900. His fees were reasonable and he would even provide free treatment to the poor.",
       },
       {
         point: "A standard answer for poor appetite",
-        sub: "Asked how to increase appetite, he would involuntarily answer: Emulsion de Scott.",
+        sub: "Rizal would often be asked, \"How do I increase my appetite?\" Rizal's answer would be Emulsion de Scott or Scott's Emulsion.",
       },
     ],
   },
   {
-    heading: "Beyond medicine",
-    media: "image",
+    heading: "Beyond Medicine",
     points: [
       {
         point: "A gymnasium for the town",
-        sub: "He wanted to interest his townmen in fencing, shooting and gymnastics, to discourage gambling and idleness.",
+        sub: "He wanted to interest his townmen in fencing, shooting, and gymnastics, to discourage gambling and idleness.",
       },
       {
-        point: "Civic life, painting and translation",
-        sub: "In his spare time he painted town landscapes and translated German poems of Von Wildernath into Tagalog.",
+        point: "Rizal's downtime",
+        sub: "In his spare time, he painted town landscapes and translated German poems by von Wildenrath into Tagalog. He also participated in civil relations.",
       },
     ],
   },
@@ -84,44 +112,16 @@ const sections = [
 
 const quiz = [
   {
-    prompt: "Which vessel did Rizal board for the first leg of his trip home?",
-    options: ["The Haiphong", "The Djemnah", "The Don Juan", "The Marseilles"],
-    answer: 1,
-    explanation: "He boarded the Djemnah, the same vessel he had taken five years earlier.",
-  },
-  {
     prompt: "Who was the first patient at Rizal's clinic in Calamba?",
-    options: ["His mother, Doña Teodora", "His sister Olimpia", "Leonor Rivera", "Governor-General Terrero"],
-    answer: 0,
+    options: ["His sister Olimpia", "His mother, Doña Teodora", "Leonor Rivera", "A friar"],
+    answer: 1,
     explanation: "He removed a double cataract from his mother's eyes, which townspeople saw as a miraculous feat.",
   },
   {
     prompt: "What was Rizal nicknamed by his patients?",
     options: ["Doctor Scott", "Doctor Haiphong", "Doctor Calamba", "Doctor Uliman"],
     answer: 3,
-    explanation: "\"Doctor Uliman\" meant the German doctor.",
-  },
-  {
-    prompt: "Why did Rizal open a gymnasium in Calamba?",
-    options: [
-      "To train soldiers for the colonial government",
-      "To discourage gambling and idleness by promoting sports",
-      "To raise money for his mother's operation",
-      "To hide his clinic from the friars",
-    ],
-    answer: 1,
-    explanation: "He wanted to interest his townmen in fencing, shooting and gymnastics.",
-  },
-  {
-    prompt: "Which was NOT one of Rizal's reasons for returning to the Philippines?",
-    options: [
-      "To operate on his mother's eyes",
-      "To serve his countrymen",
-      "To join the colonial government",
-      "To learn the effects of the Noli",
-    ],
-    answer: 2,
-    explanation: "His reasons were his mother's eyes, serving his countrymen, the effects of the Noli, and Leonor Rivera's silence.",
+    explanation: "He was called Doctor Uliman, or the German Doctor.",
   },
 ];
 

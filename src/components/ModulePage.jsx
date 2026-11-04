@@ -12,8 +12,10 @@ import { MODULES, LOREM_SHORT, placeholderPoints } from "../data/pages";
  *   sandwich  key points split to either side of centered media
  *
  * Optional props for real content:
- *   intro, sections: [{ heading, points: [{point, sub}], media: "image" | "video", src, caption }],
- *   quiz: [{ prompt, options, answer, explanation }]
+ *   (a section with no src and no caption has no media box)
+ *   intro, sections: [{ heading, points, media: "image" | "video", src, alt, caption, credit, poster }],
+ *   quiz: [{ prompt, options, answer, explanation }],
+ *   quizMedia: optional image/video shown beside the quiz (same fields as a section)
  */
 const DEFAULT_SECTIONS = [
   { heading: "Section heading 1", media: "image" },
@@ -23,18 +25,37 @@ const DEFAULT_SECTIONS = [
 
 function Media({ s, ratio, className = "" }) {
   return s.media === "video" ? (
-    <VideoPlaceholder src={s.src} caption={s.caption} className={className} />
+    <VideoPlaceholder
+      src={s.src}
+      poster={s.poster}
+      title={s.title}
+      caption={s.caption}
+      credit={s.credit}
+      className={className}
+    />
   ) : (
-    <ImagePlaceholder ratio={ratio} src={s.src} caption={s.caption} className={className} />
+    <ImagePlaceholder
+      ratio={ratio}
+      src={s.src}
+      alt={s.alt ?? s.caption}
+      caption={s.caption}
+      credit={s.credit}
+      className={className}
+    />
   );
 }
 
 function SectionBody({ layout, s, index }) {
+  // No src and no caption means no media for this section: show the points full width.
+  if (!s.src && !s.caption) {
+    return <KeyPoints group={s.heading} points={s.points} columns={2} />;
+  }
+
   if (layout === "zigzag") {
     const flip = index % 2 === 1;
     return (
       <div className="grid items-start gap-10 md:grid-cols-2">
-        <KeyPoints points={s.points} />
+        <KeyPoints group={s.heading} points={s.points} />
         <Media s={s} ratio="aspect-4/3" className={flip ? "md:order-first" : ""} />
       </div>
     );
@@ -43,8 +64,8 @@ function SectionBody({ layout, s, index }) {
   if (layout === "portrait") {
     return (
       <div className="grid items-start gap-10 md:grid-cols-2">
-        <KeyPoints points={s.points} />
-        <Media s={s} ratio="aspect-3/4" className="md:sticky md:top-28 md:order-first" />
+        <KeyPoints group={s.heading} points={s.points} />
+        <Media s={s} ratio="aspect-4/3" className="md:sticky md:top-28 md:order-first" />
       </div>
     );
   }
@@ -53,9 +74,9 @@ function SectionBody({ layout, s, index }) {
     const mid = Math.ceil(s.points.length / 2);
     return (
       <div className="grid items-start gap-10 lg:grid-cols-3">
-        <KeyPoints points={s.points.slice(0, mid)} size="sm" />
+        <KeyPoints group={s.heading} points={s.points.slice(0, mid)} size="sm" />
         <Media s={s} ratio="aspect-3/4" />
-        <KeyPoints points={s.points.slice(mid)} size="sm" />
+        <KeyPoints group={s.heading} points={s.points.slice(mid)} size="sm" />
       </div>
     );
   }
@@ -63,7 +84,7 @@ function SectionBody({ layout, s, index }) {
   // split (default)
   return (
     <div className="grid items-start gap-10 md:grid-cols-2">
-      <KeyPoints points={s.points} />
+      <KeyPoints group={s.heading} points={s.points} />
       <Media s={s} ratio="aspect-4/3" />
     </div>
   );
@@ -98,9 +119,11 @@ export default function ModulePage({ id, intro = LOREM_SHORT, sections = DEFAULT
         <h2 id={`${id}-quiz-title`} className="font-display text-4xl font-semibold md:text-5xl">
           Check your understanding
         </h2>
-        <div className="mt-8">
-          <Quiz key={id} questions={quiz} />
-        </div>
+        {(
+          <div className="mt-8">
+            <Quiz key={id} questions={quiz} />
+          </div>
+        )}
       </section>
 
       <nav aria-label="Previous and next part" className="grid border-t-4 border-ink font-ui sm:grid-cols-2">

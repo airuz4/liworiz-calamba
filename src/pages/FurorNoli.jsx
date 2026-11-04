@@ -3,156 +3,244 @@ import ModulePage from "../components/ModulePage";
 const intro =
   "Copies of the Noli reached Manila before Rizal did, and the friars, the government and the university all responded.";
 
+// Each key point with a `detail` opens a "paper" notes dialog when clicked.
+// Points with a `detail` open a "paper" notes dialog when clicked.
+// MEDIA: replace each `src` below with your real file or link.
+//   images: put the file in public/images and use "/images/yourfile.jpg"
+//   videos: paste the YouTube link (watch, youtu.be or shorts all work)
+// A section with no `caption` and no `src` has no media box at all.
+// To add media later, add `media`, `src` and `caption` to that section.
 const sections = [
   {
-    heading: "Arrival and initial reaction",
-    media: "image",
+    heading: "Arrival and Initial Reaction",
     points: [
       {
-        point: "Copies arrived before Rizal",
-        sub: "They reached the Philippines weeks earlier and passed customs authorities into public hands.",
+        point: "The Copies of Noli",
+        sub: "Copies reached the Philippines before Rizal did, and the friars were outraged.",
+        detail: [
+          {
+            label: "Arrival in Manila",
+            text: "Copies reached the Philippines weeks before Rizal's return, successfully bypassing customs authorities into public hands.",
+          },
+          {
+            label: "Friars' Reaction",
+            text: "Books fell into Spanish hands, especially the friars, who were outraged by their depiction as villains.",
+          },
+        ],
       },
       {
-        point: "The friars were outraged",
-        sub: "The books fell into Spanish hands, especially the friars, who were angered by being shown as villains.",
-      },
-      {
-        point: "Tension over his return",
-        sub: "He returned to disprove claims that he was only brave enough to write about conditions from the safety of Europe.",
+        point: "Rizal's Awaited Arrival",
+        sub: "His return heightened tension.",
+        detail: [
+          {
+            label: "Heightened Tension",
+            text: "Rizal returned to disprove claims that he was only brave enough to write about Philippine conditions while safe in Europe.",
+          },
+        ],
       },
     ],
   },
   {
-    heading: "The Governor-General steps in",
+    heading: "Government Inquiry and Security",
     media: "image",
+    src: "/images/emilio-terrero.avif",
+    alt: "Portrait of Governor-General Emilio Terrero y Perinat",
+    caption: "Governor-General Emilio Terrero, who summoned Rizal to Malacañang Palace to inspect Noli Me Tángere and subsequently assigned Lt. Jose Taviel de Andrade as his personal bodyguard.",
+    credit: "The Kahimyang Project",
     points: [
       {
-        point: "Summoned to Malacañang",
-        sub: "Governor-General Emilio Terrero called Rizal in over reports of seditious ideas. Rizal said he was exposing true conditions, not spreading subversion.",
+        point: "The Conversation with Governor Emilio Terrero",
+        sub: "Rizal was summoned to Malacañang to answer for the novel.",
+        detail: [
+          {
+            label: "Malacañang Summons",
+            text: "Governor-General Emilio Terrero summoned Rizal over reports that the novel contained seditious ideas.",
+          },
+          {
+            label: "Rizal's Defense",
+            text: "Rizal clarified he was exposing true conditions, not spreading subversion.",
+          },
+          {
+            label: "Jesuit Refusal & Warning",
+            text: "Seeking a copy for the Governor, Rizal asked the Jesuits, but they refused to part with theirs. Former professors (Frs. Sanchez, Bech, and Faura) warned him that the novel would cost him his head.",
+          },
+        ],
       },
       {
-        point: "The Jesuits refuse, then warn",
-        sub: "They would not part with their copy. Former professors Frs. Sanchez, Bech and Faura warned him that the novel would cost him his head.",
-      },
-      {
-        point: "A bodyguard who became a friend",
-        sub: "Lt. José Taviel de Andrade was assigned to protect Rizal from death threats. They bonded over shared interests.",
-      },
-      {
-        point: "Terrero finds nothing wrong",
-        sub: "Rizal got a copy from a friend and delivered it. After reading it, Terrero saw nothing wrong with it.",
+        point: "Rizal's Friend and Bodyguard / General Terrero's Verdict",
+        sub: "Rizal delivered a copy to Terrero, and a lieutenant was assigned to protect him.",
+        detail: [
+          {
+            label: "Finding a Copy",
+            text: "Rizal secured a copy from a friend and delivered it to Governor-General Terrero.",
+          },
+          {
+            label: "Lt. José Taviel de Andrade",
+            text: "Assigned to protect Rizal due to death threats; both became close friends over shared interests.",
+          },
+          {
+            label: "Terrero's Reaction",
+            text: "After reading the book, General Terrero found nothing wrong with it.",
+          },
+        ],
       },
     ],
   },
   {
-    heading: "Official censorship",
-    media: "video",
+    heading: "Official Censorship and Escalation",
+    media: "image",
+    src: "/images/noli.jpg",
+    alt: "Cover page of the first edition of Noli Me Tángere, Berlin, 1887",
+    caption: "First edition of Noli Me Tángere, which was condemned by the University of Santo Tomas faculty committee and recommended for total ban by the Permanent Commission on Censorship.",
+    credit: "www.tatlerasia.com | Picture taken at Philippine National Library",
     points: [
       {
-        point: "The UST committee condemns the book",
-        sub: "Archbishop Pedro Payo sent it to UST Rector Fr. Gregorio Echavarría. The faculty committee called it heretical, impious and scandalous, and subversive of public order.",
+        point: "UST Committee Assessment",
+        sub: "The Archbishop sent the novel to UST for review, and a faculty committee condemned it.",
+        detail: [
+          {
+            label: "Archbishop's Initiative",
+            text: "Archbishop of Manila Pedro Payo, O.P., sent the novel to UST Rector Fr. Gregorio Echavarría for review.",
+          },
+          {
+            label: "Faculty Committee Verdict",
+            text: "Declared the Noli:",
+            quote:
+              "Heretical, impious, and scandalous in the religious order, anti-patriotic, subversive of public order, injurious to the government of Spain and of the Philippine Islands in the political order.",
+          },
+        ],
       },
       {
-        point: "Terrero doubts the friars' bias",
-        sub: "He referred the book to the Permanent Commission on Censorship, headed by Fr. Salvador Font, Augustinian curate of Tondo.",
+        point: "Permanent Commission on Censorship",
+        sub: "Doubting the biased friars, Terrero referred the book to a commission, which recommended a ban.",
+        detail: [
+          {
+            label: "Fr. Salvador Font's Review",
+            text: "Doubting the biased friars, Terrero referred the book to the Permanent Commission on Censorship, headed by Fr. Salvador Font (Augustinian curate of Tondo).",
+          },
+          {
+            label: "Official Ban",
+            text: "The Commission recommended an absolute prohibition on the importation, reproduction, and distribution of the novel.",
+          },
+        ],
       },
       {
-        point: "An absolute ban is recommended",
-        sub: "The Commission urged a prohibition on importing, reproducing and distributing the novel.",
+        point: "Public Impact and Counter-Effect",
+        sub: "The ban backfired and made the novel more sought after.",
+        detail: [
+          {
+            label: "Unintended Publicity",
+            text: "Publishing Fr. Font's report served as free advertisement, triggering massive public interest.",
+          },
+          {
+            label: "Price Surge",
+            text: "Owning a copy became a status symbol. Prices skyrocketed from the original 5 pesetas (June 1887) up to 50 pesos per copy.",
+          },
+          {
+            label: "Secret Reading",
+            text: "To avoid arrest and harassment, people hid their copies and read the novel privately at night.",
+          },
+        ],
       },
     ],
   },
   {
-    heading: "The ban backfires",
-    media: "image",
-    points: [
-      {
-        point: "Free advertisement",
-        sub: "Publishing Fr. Font's report triggered massive public interest.",
-      },
-      {
-        point: "A status symbol",
-        sub: "Prices rose from 5 pesetas in June 1887 to as much as 50 pesos per copy.",
-      },
-      {
-        point: "Read in secret",
-        sub: "To avoid arrest and harassment, people hid their copies and read at night.",
-      },
-    ],
-  },
-  {
-    heading: "Smuggling the Noli",
-    media: "image",
+    heading: "Smuggling the Noli (On His Way Back to Europe)",
     points: [
       {
         point: "Perfecto Rufino Riego",
-        sub: "Rizal met the young Tagalog seaman from Marinduque in 1888. He agreed to smuggle sacks of the novel from Hong Kong to Manila.",
+        sub: "Rizal met a young Tagalog seaman from Marinduque in 1888, who agreed to smuggle sacks of the novel from Hong Kong to Manila.",
       },
       {
-        point: "One sack at a time",
-        sub: "Riego left a sack at the back of a carromata.",
+        point: "Distribution Strategy",
+        sub: "Riego secretly distributed the books by leaving one sack at a time at the back of a carromata.",
       },
       {
-        point: "Students and secular priests",
-        sub: "They were the readers who received the sacks.",
+        point: "Target Readers",
+        sub: "Sacks of the Noli were successfully handed off to students and secular priests.",
       },
     ],
   },
   {
-    heading: "Opposition to the novel",
+    heading: "Opposition to Noli Me Tángerë",
     media: "image",
+    src: "/images/caingat.jpg",
+    alt: "Cover of the pamphlet Caiingat Cayo by Fr. Jose Rodriguez",
+    caption: "Anti-Noli pamphlet 'Caiingat Cayo' authored by Fr. Jose Rodriguez, warning Catholics against reading Rizal's 'heretical and seditious' novel.",
+    credit: "Project Gutenberg.",
     points: [
       {
-        point: "Fr. José Rodríguez",
-        sub: "The Prior of Guadalupe published Caiingat Cayo in 1888, warning that reading the Noli was a mortal sin. He called Rizal ignorant and the novel an attack on the Church.",
+        point: "Friars Hated the Novel",
+        sub: "Fr. José Rodríguez and other friars campaigned against it.",
+        detail: [
+          {
+            label: "Fr. José Rodríguez (Prior of Guadalupe)",
+            text: "Published Caiingat Cayo (1888) warning that reading the Noli was a mortal sin due to its heresies.",
+          },
+          {
+            label: "Accusations against Rizal",
+            text: "Called Rizal an ignorant man and labeled his novel a direct attack on the Catholic Church.",
+          },
+          {
+            label: "Widespread Campaign",
+            text: "Controversy spread throughout the countryside as friars preached against the book from their pulpits.",
+          },
+        ],
       },
       {
-        point: "Friars preached against it",
-        sub: "The controversy spread through the countryside as friars denounced the book from their pulpits.",
-      },
-      {
-        point: "Critics in Spain",
-        sub: "Vicente Barrantes attacked it in España Moderna in 1890 as unpatriotic. Two senators and a member of the lower house also spoke against it.",
+        point: "Bashers from Spain",
+        sub: "Critics in Spain attacked the novel in print and in parliament.",
+        detail: [
+          {
+            label: "Vicente Barrantes",
+            text: "Attacked the novel in España Moderna (1890), declaring it unpatriotic and offensive to Spain.",
+          },
+          {
+            label: "Spanish Politicians",
+            text: "Two Spanish senators and a member of the Spanish lower house spoke out against the novel during parliamentary sessions.",
+          },
+        ],
       },
     ],
   },
   {
-    heading: "Defenders of the novel",
+    heading: "Defenders of Noli Me Tángerë",
     media: "image",
+    src: "/images/defenders.jpeg",
+    alt: "Composite portrait of Marcelo H. del Pilar, Fr. Francisco de Paula Sanchez and Fr. Vicente Garcia",
+    caption: "Key defenders of Noli Me Tángere: Marcelo H. del Pilar (author of 'Caiigat Cayo'), Fr. Francisco de Paula Sanchez, and Fr. Vicente Garcia.",
+    credit: "Philippine Historical Association / Propaganda Movement Archives.",
     points: [
       {
         point: "Marcelo H. del Pilar",
-        sub: "He wrote Caiigat Cayo (\"Slippery as an Eel\"), a satirical response smuggled into churches.",
+        sub: "Authored Caiigat Cayo (\"Slippery as an Eel\"), a satirical response smuggled into churches.",
       },
       {
         point: "Fr. Francisco de Paula Sanchez",
-        sub: "Rizal's former professor defended the novel publicly.",
+        sub: "Rizal's former professor who publicly defended the novel.",
       },
       {
         point: "Fr. Vicente Garcia",
-        sub: "A Filipino priest-theologian who answered Fr. Rodríguez point by point.",
-      },
-    ],
-  },
-  {
-    heading: "Fr. Garcia's replies",
-    media: "video",
-    points: [
-      {
-        point: "Rizal was not \"ignorant\"",
-        sub: "He was a graduate of a Spanish university and an award recipient.",
-      },
-      {
-        point: "The target was corruption, not the Church",
-        sub: "The novel attacked corrupt friars and government officials.",
-      },
-      {
-        point: "The mortal sin argument backfires",
-        sub: "If reading the Noli was a mortal sin, Fr. Rodríguez committed it by reading it to write his critique.",
+        sub: "A Filipino Catholic priest-theologian who countered Fr. Rodríguez's points systematically.",
+        detail: [
+          "Fr. Garcia answered Fr. Rodríguez's points one by one:",
+          {
+            list: [
+              "On Rizal's intelligence: Rizal was a graduate of a Spanish university and an award recipient, thus not an \"ignorant man.\"",
+              "On the novel's target: It attacked corrupt friars and government officials, not the Catholic Church itself.",
+              "On the mortal sin logic: If reading the Noli was a mortal sin, Fr. Rodríguez himself committed it by reading it to write his critique.",
+            ],
+          },
+        ],
       },
     ],
   },
 ];
+
+// Video shown beside the quiz at the end of the page.
+const quizMedia = {
+
+};
 
 const quiz = [
   {
@@ -160,12 +248,6 @@ const quiz = [
     options: ["Pedro Payo", "Salvador Font", "Emilio Terrero", "Gregorio Echavarría"],
     answer: 2,
     explanation: "Governor-General Emilio Terrero summoned him to Malacañang. After reading the book, he found nothing wrong with it.",
-  },
-  {
-    prompt: "Who was assigned to protect Rizal from death threats?",
-    options: ["Lt. José Taviel de Andrade", "Perfecto Rufino Riego", "Fr. Salvador Font", "Marcelo H. del Pilar"],
-    answer: 0,
-    explanation: "Lt. Taviel de Andrade became Rizal's bodyguard, and the two became close friends.",
   },
   {
     prompt: "What was the unintended effect of publishing Fr. Font's report?",
@@ -177,12 +259,6 @@ const quiz = [
     ],
     answer: 2,
     explanation: "Owning a copy became a status symbol, and prices rose from 5 pesetas to as much as 50 pesos.",
-  },
-  {
-    prompt: "Who agreed to smuggle sacks of the Noli from Hong Kong to Manila?",
-    options: ["Vicente Barrantes", "Fr. Vicente Garcia", "Marcelo H. del Pilar", "Perfecto Rufino Riego"],
-    answer: 3,
-    explanation: "Riego, a young Tagalog seaman from Marinduque, left one sack at a time at the back of a carromata.",
   },
   {
     prompt: "What was Fr. Garcia's reply to the claim that reading the Noli was a mortal sin?",
@@ -198,5 +274,5 @@ const quiz = [
 ];
 
 export default function FurorNoli({ setActivePage }) {
-  return <ModulePage id="furor-noli" intro={intro} sections={sections} quiz={quiz} setActivePage={setActivePage} />;
+  return <ModulePage id="furor-noli" intro={intro} sections={sections} quiz={quiz} quizMedia={quizMedia} setActivePage={setActivePage} />;
 }

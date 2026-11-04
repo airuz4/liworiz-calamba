@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import KeyPoints from "./components/KeyPoints";
-import { ImagePlaceholder, VideoPlaceholder } from "./components/Media";
+import { ImagePlaceholder } from "./components/Media";
 import { MODULES } from "./data/pages";
 import HomeAfterYears from "./pages/HomeAfterYears";
 import FurorNoli from "./pages/FurorNoli";
@@ -59,7 +59,13 @@ function Summary({ setActivePage }) {
             Start with Part 1
           </button>
         </div>
-        <ImagePlaceholder ratio="aspect-4/3" caption="Lead image placeholder." />
+        <ImagePlaceholder
+          ratio="aspect-4/3"
+          src="images/rizal-monument.jpg"
+          alt="Portrait of Dr. José Rizal in 1887"
+          caption="Dr. Jose Rizal upon his return to the Philippines in 1887, marking six tumultuous months in Calamba before being forced back into exile."
+          credit="Intrepid Wanderer (intrepidwanderer.com)"
+        />
       </section>
 
       {/* Executive summary: key points beside an image */}
@@ -67,17 +73,19 @@ function Summary({ setActivePage }) {
         <h2 className="font-display text-4xl font-semibold md:text-5xl">Executive summary</h2>
         <div className="mt-8 grid items-start gap-10 md:grid-cols-2">
           <KeyPoints points={EXEC_POINTS} />
-          <ImagePlaceholder ratio="aspect-4/3" caption="Supporting image placeholder." />
+          <ImagePlaceholder
+            ratio="aspect-4/3"
+            src="/images/calamba-laguna.jpg"
+            alt="An old photo of Calamba, Laguna"
+            caption="An old photo of Calamba, Laguna"
+            credit="https://www.flickr.com/photos/190918182@N07/"
+          />
         </div>
       </section>
 
       {/* Video beside more key points */}
       <section className="border-t-4 border-ink py-14">
-        <h2 className="font-display text-4xl font-semibold md:text-5xl">At a glance</h2>
-        <div className="mt-8 grid items-start gap-10 md:grid-cols-2">
-          <VideoPlaceholder caption="Documentary or lecture embed placeholder." className="md:order-first" />
           <KeyPoints points={GLANCE_POINTS} />
-        </div>
       </section>
 
       {/* Quick links */}

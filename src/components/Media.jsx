@@ -21,6 +21,20 @@ function ratioOf(cls) {
 // Largest box that fits inside 75vw x 75vh at the given ratio.
 const fit = (r) => ({ width: `min(75vw, calc(75vh * ${r}))`, aspectRatio: String(r) });
 
+// Treat empty values and template placeholders (VIDEO_ID_HERE, REPLACE...) as "not set yet".
+const isUnset = (s) => !s || /VIDEO_ID|REPLACE/i.test(s);
+
+// Accepts normal YouTube links (watch, youtu.be, shorts) and converts them to
+// the embed form an iframe needs. Other URLs are returned unchanged.
+function toEmbed(src) {
+  if (!src) return src;
+  const m =
+    /youtube\.com\/watch\?(?:[^#]*&)?v=([\w-]{6,})/.exec(src) ||
+    /youtu\.be\/([\w-]{6,})/.exec(src) ||
+    /youtube\.com\/shorts\/([\w-]{6,})/.exec(src);
+  return m ? `https://www.youtube.com/embed/${m[1]}` : src;
+}
+
 // Auto poster for YouTube embeds (https://www.youtube.com/embed/ID).
 function youtubePoster(src) {
   const m = /youtube(?:-nocookie)?\.com\/embed\/([\w-]+)/.exec(src ?? "");
@@ -96,13 +110,17 @@ function Lightbox({ open, onClose, label, caption, children }) {
 export function ImagePlaceholder({
   ratio = "aspect-video",
   caption = "Caption placeholder: describe the image here.",
-  credit = "Source / credit placeholder",
+  credit,
   src,
   alt = "",
   className = "",
 }) {
   const [open, setOpen] = useState(false);
+  const [failed, setFailed] = useState(false); // file missing: fall back to the empty slot
   const r = ratioOf(ratio);
+  const hasImg = !isUnset(src) && !failed;
+  // Show the placeholder credit only while the slot is empty.
+  const creditText = credit ?? (hasImg ? null : "Source / credit placeholder");
 
   return (
     <figure className={className}>
@@ -115,8 +133,14 @@ export function ImagePlaceholder({
         <span
           className={`${ratio} plate relative block w-full overflow-hidden border-2 border-ink bg-paper-deep transition-colors duration-150 group-hover:border-wax`}
         >
-          {src ? (
-            <img src={src} alt={alt} className="h-full w-full object-cover" loading="lazy" />
+          {hasImg ? (
+            <img
+              src={src}
+              alt={alt}
+              className="h-full w-full object-cover"
+              loading="lazy"
+              onError={() => setFailed(true)}
+            />
           ) : (
             <span className="absolute inset-0 flex items-end justify-start p-3">
               <span className="bg-ink px-2 py-0.5 font-ui text-sm text-paper">Image slot</span>
@@ -128,11 +152,11 @@ export function ImagePlaceholder({
 
       <figcaption className="mt-3 border-l-4 border-wax pl-3 font-ui text-base leading-snug">
         <span className="block">{caption}</span>
-        <span className="block opacity-60">{credit}</span>
+        {creditText && <span className="block opacity-60">{creditText}</span>}
       </figcaption>
 
       <Lightbox open={open} onClose={() => setOpen(false)} label={caption} caption={caption}>
-        {src ? (
+        {hasImg ? (
           <img src={src} alt={alt} className="h-[75vh] w-[75vw] object-contain" />
         ) : (
           <div className="plate flex items-end border-2 border-paper/60 bg-paper-deep p-3 text-ink" style={fit(r)}>
@@ -146,14 +170,16 @@ export function ImagePlaceholder({
 
 export function VideoPlaceholder({
   caption = "Video caption placeholder.",
-  src, // e.g. "https://www.youtube.com/embed/VIDEO_ID"
+  credit,
+  src, // any YouTube link, e.g. https://www.youtube.com/watch?v=VIDEO_ID
   poster, // optional thumbnail URL; YouTube embeds get one automatically
   title = "Embedded video",
   className = "",
 }) {
   const [open, setOpen] = useState(false);
-  const thumb = poster ?? youtubePoster(src);
-  const playSrc = src ? `${src}${src.includes("?") ? "&" : "?"}autoplay=1` : null;
+  const embed = isUnset(src) ? null : toEmbed(src);
+  const thumb = poster ?? youtubePoster(embed);
+  const playSrc = embed ? `${embed}${embed.includes("?") ? "&" : "?"}autoplay=1` : null;
 
   return (
     <figure className={className}>
@@ -173,7 +199,10 @@ export function VideoPlaceholder({
         <EnlargeBadge />
       </button>
 
-      <figcaption className="mt-3 border-l-4 border-wax pl-3 font-ui text-base leading-snug">{caption}</figcaption>
+      <figcaption className="mt-3 border-l-4 border-wax pl-3 font-ui text-base leading-snug">
+        <span className="block">{caption}</span>
+        {credit && <span className="block opacity-60">{credit}</span>}
+      </figcaption>
 
       <Lightbox open={open} onClose={() => setOpen(false)} label={caption} caption={caption}>
         <div className="relative border-2 border-paper/60 bg-ink" style={fit(16 / 9)}>
